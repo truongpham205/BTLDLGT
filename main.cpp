@@ -387,7 +387,7 @@ int main()
                 {
                     cout << "-------------Chen them sinh vien theo thu tu--------------" << endl;
                     int index = getIndexWithIndex();
-                    vtStudent.insert(index - 1, getInputStudent());
+                    vtStudent.insert(index, getInputStudent());
                 }
                 break;
                 
@@ -450,8 +450,8 @@ int main()
                 else
                 {
                     int index = getIndexWithIndex();
-                    vtStudent.erase(index - 1);
-                    cout << "Da xoa sinh vien thu " << index - 1 << "!" << endl;
+                    vtStudent.erase(index);
+                    cout << "Da xoa sinh vien thu " << index + 1 << "!" << endl;
                 }
                 break;
                 
