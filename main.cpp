@@ -226,11 +226,11 @@ void printStudentWithName()
     cout<< "Nhap ten sinh vien: ";
     cin>>name;
     bool isFound = false;
-    std::transform(name.begin(), name.end(),name.begin(), ::tolower);
+    transform(name.begin(), name.end(),name.begin(), ::tolower);
     for (int i = 0; i<vtStudent.getSize(); i++)
     {
         string searchName=vtStudent[i].name;
-        std::transform(searchName.begin(),searchName.end(),searchName.begin(), ::tolower);
+        transform(searchName.begin(),searchName.end(),searchName.begin(), ::tolower);
         if(searchName.find(name) != string::npos)
         {
             printStudent(i);
