@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
 using namespace std;
 
 template <typename T>
@@ -196,7 +197,8 @@ int getIndexWithIndex()
     {
         cout << "Nhap thu tu sinh vien: ";
         cin >> index;
-        if (index < 1 || index>vtStudent.getSize()) cout << "Nhap thu tu lon hon 0 va khong qua " << vtStudent.getSize() << "!" << endl;
+        if (index < 1 || index>vtStudent.getSize())
+            cout << "Nhap thu tu lon hon 0 va khong qua " << vtStudent.getSize() << "!" << endl;
     } while (index < 1 || index>vtStudent.getSize());
     return index - 1;
 }
@@ -223,13 +225,22 @@ void printStudentWithName()
     string name;
     cout<< "Nhap ten sinh vien: ";
     cin>>name;
+    bool isFound = false;
+    std::transform(name.begin(), name.end(),name.begin(), ::tolower);
     for (int i = 0; i<vtStudent.getSize(); i++)
     {
-        if(vtStudent[i].name.find(name) != string::npos)
+        string searchName=vtStudent[i].name;
+        std::transform(searchName.begin(),searchName.end(),searchName.begin(), ::tolower);
+        if(searchName.find(name) != string::npos)
         {
             printStudent(i);
+            isFound = true;
         }
     }
+    if (!isFound) {
+        cout<<"Khong tim thay sinh vien nao!"<< endl;
+    }
+    
 }
 
 void addMultiStudent(int quantity) {
